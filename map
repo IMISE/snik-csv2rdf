@@ -1,0 +1,1 @@
+sparqlify -c heinrich.sml -f htest.csv 2>&1  | egrep -v "(TRACE)|(DEBUG)"
