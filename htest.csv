@@ -1,5 +1,4 @@
-SubjektUri,SubjDe,SubjEn,SubjAltDe,SubjAltEn,Subjekttyp ,Relation Suffix URI meta,ObjektURISuffix,SKante,"Definition
-Subjekt",Sdef,Kapitel,Kommentar
+SubjektUri,SubjDe,SubjEn,SubjAltDe,SubjAltEn,Subjekttyp ,Relation,Objekt,SeiteRelation,Definition,SeiteDefinition,Kapitel,Kommentar
 Abgb,Allgemeines Bürgerliches Gesetzbuch (Ö),,ABGB,,EntityType,rdfs:subClassOf,Gesetz,,Allgemeines Bürgerliches Gesetzbuch (Österreich).,Website;67,RECHT,
 Ablauforganisation,Ablauforganisation,Organizational Structure,,,EntityType,meta:isBasedOn,ImKonzept,18,,,ERMOD,
 AbleitenTeilstrategien,Ableiten von Teilstrategien,,,,Function,,,,,117;120,,
@@ -1304,7 +1303,7 @@ Urheberrecht,Urheberrecht,copyright,,,EntityType,meta:isAssociatedWith,Urheberre
 Urheberrecht,Urheberrecht,copyright,,,EntityType,meta:isDecomposedInIn,Nutzungsrecht,67,"Recht, das geistige Werke schützt und nicht übertragbare Persönlichkeitsrechte
 und übertragbare Verwertungsrechte (Nutzungsrechte ) umfasst.",67,RECHT,
 Urhg,UrhG ,"Urheberrechtsgesetz (D,Ö)",,,EntityType,meta:isAssociatedWith,Urheberrecht,,"Urheberrechtsgesetz (Deutschland, Österreich).",Website;67,RECHT,
-UrsachenstrategischerUberdehnung,Ursachen strategischer Uberdehnung,,,,EntityType,meta:isDecomposedIn,fehlendeKlarheitueberLeistungspotenzial,,,101,Schlechte Konzepte. Dennoch interessante Information. Wie soll Konzeptualisiert werden? Evtl. lediglich als Textblock verwenden -> MS/FJ!,
+UrsachenstrategischerUberdehnung,Ursachen strategischer Uberdehnung,,,,EntityType,meta:isDecomposedIn,fehlendeKlarheitueberLeistungspotenzial,,,101,,Schlechte Konzepte. Dennoch interessante Information. Wie soll Konzeptualisiert werden? Evtl. lediglich als Textblock verwenden -> MS/FJ!
 UrsachenstrategischerUberdehnung,Ursachen strategischer Uberdehnung,,,,EntityType,meta:isDecomposedIn,bestehendesScheinErfolgspotenzial,,,101,,
 UrsachenstrategischerUberdehnung,Ursachen strategischer Uberdehnung,,,,EntityType,meta:isDecomposedIn,fehlendestrategischeItPlanung,,,101,,
 UrsachenstrategischerUberdehnung,Ursachen strategischer Uberdehnung,,,,EntityType,meta:isDecomposedIn,fehlendesControlling,,,101,,
