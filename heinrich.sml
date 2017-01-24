@@ -15,7 +15,7 @@ Create View Template test As
   }
   
 With
-    ?s = uri(he:, ?SubjektUriSuffix)
+    ?s = uri(he:, ?SubjektUri)
     ?lde = plainLiteral(?SubjDe,"de")
     ?len = plainLiteral(?SubjEn,"en")
     ?lade = plainLiteral(?SubjAltDe,"de")

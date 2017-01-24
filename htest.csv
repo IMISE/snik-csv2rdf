@@ -1,4 +1,4 @@
-Subjekt URI Suffix, Subjektlabel_de,SubjEn,SubjAltDe,SubjAltEn,Subjekttyp ,Relation Suffix URI meta,ObjektURISuffix,SKante,"Definition
+SubjektUri,SubjDe,SubjEn,SubjAltDe,SubjAltEn,Subjekttyp ,Relation Suffix URI meta,ObjektURISuffix,SKante,"Definition
 Subjekt",Sdef,Kapitel,Kommentar
 Abgb,Allgemeines Bürgerliches Gesetzbuch (Ö),,ABGB,,EntityType,rdfs:subClassOf,Gesetz,,Allgemeines Bürgerliches Gesetzbuch (Österreich).,Website;67,RECHT,
 Ablauforganisation,Ablauforganisation,Organizational Structure,,,EntityType,meta:isBasedOn,ImKonzept,18,,,ERMOD,
