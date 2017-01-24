@@ -1,0 +1,2 @@
+cp prefix.ttl fixed.ttl
+egrep -v '("")|(<>)' heinrich.nt | sed -r "s|<([^ /]+):([^ /]+)>|\1:\2|g" >> fixed.ttl
