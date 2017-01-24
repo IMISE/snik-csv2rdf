@@ -8,16 +8,25 @@ PREFIX meta: <http://www.snik.eu/ontology/meta/>
 Create View Template test As
   Construct {
     ?s  a owl:Class;
-        rdfs:label ?lde;
-        rdfs:label ?len;
-        skos:altLabel ?lade;
-        skos:altLabel ?laen;
+        meta:subTopClass ?st;
+        rdfs:label ?lde, ?len;
+        skos:altLabel ?lade, ?laden;
+        ?p ?o;
+        he:page ?pd;
+        skos:definition ?d;
+        he:chapter ?ch.
   }
   
 With
     ?s = uri(he:, ?SubjektUri)
+    ?st = uri(meta:, ?Subjekttyp)
     ?lde = plainLiteral(?SubjDe,"de")
     ?len = plainLiteral(?SubjEn,"en")
     ?lade = plainLiteral(?SubjAltDe,"de")
     ?laen = plainLiteral(?SubjAltEn,"en")
-
+    ?p = uri(?Relation)
+    ?o = uri(he:,?Objekt)
+    ?pr = typedLiteral(?SeiteRelation,xsd:positiveInteger)
+    ?d = plainLiteral(?Definition,"de")
+    ?pd = typedLiteral(?SeiteDefinition,xsd:positiveInteger)
+    ?ch = uri(he:,?Kapitel)
