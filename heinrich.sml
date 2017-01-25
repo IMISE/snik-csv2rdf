@@ -4,6 +4,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX he: <http://www.snik.eu/ontology/he/>
 PREFIX meta: <http://www.snik.eu/ontology/meta/>
+PREFIX ov: <http://open.vocab.org/terms/>
 
 Create View Template test As
   Construct {
@@ -15,6 +16,8 @@ Create View Template test As
         he:page ?pd;
         skos:definition ?d;
         he:chapter ?ch.
+
+        <http://www.snik.eu/ontology/he> ov:defines ?s.
   }
   
 With
