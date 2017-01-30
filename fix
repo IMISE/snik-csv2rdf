@@ -1,2 +1,3 @@
-cp prefix.ttl fixed.ttl
-egrep -v '("")|(<>)' heinrich.nt | sed -r "s|<([^ /]+):([^ /]+)>|\1:\2|g" >> fixed.ttl
+cp prefix.ttl /tmp/tmp.ttl
+egrep -v '("")|(<>)' heinrich.nt | sed -r "s|<([^ /]+):([^ /]+)>|\1:\2|g" >> /tmp/tmp.ttl
+rapper -i turtle -o turtle /tmp/tmp.ttl > fixed.ttl

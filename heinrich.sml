@@ -18,7 +18,14 @@ Create View Template test As
         he:chapter ?ch.
 
         <http://www.snik.eu/ontology/he> ov:defines ?s.
-  }
+
+    ?s rdfs:subClassOf ?r.
+ 
+   ?r a                         owl:Restriction;
+      owl:onProperty            ?rp;
+      ?rt                       ?ro.
+
+}
   
 With
     ?s = uri(he:, ?SubjektUri)
@@ -33,3 +40,8 @@ With
     ?d = plainLiteral(?Definition,"de")
     ?pd = typedLiteral(?SeiteDefinition,xsd:positiveInteger)
     ?ch = uri(he:,?Kapitel)
+
+    ?r = BNODE(?rowId)
+    ?rp = uri(?RestrictionOnProperty)
+    ?ro = uri(he:,?RestrictionObject)
+    ?rt = uri(owl:,?RestrictionType)

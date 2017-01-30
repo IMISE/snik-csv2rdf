@@ -1,0 +1,34 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX he: <http://www.snik.eu/ontology/he/>
+PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
+
+  Construct {
+    ?s  a owl:Class;
+        meta:subTopClass ?st;
+        rdfs:label ?lde, ?len;
+        skos:altLabel ?lade, ?laden;
+        ?p ?o;
+        he:page ?pd;
+        skos:definition ?d;
+        he:chapter ?ch.
+  }
+
+FROM <file:htest.csv>
+WHERE
+{
+    BIND (uri(concat('http://www.snik.eu/ontology/he/',?SubjektUri)) AS ?s)
+    BIND (uri(concat('http://www.snik.eu/ontology/meta/', ?Subjekttyp)) AS ?st)
+    BIND (STRLANG(?SubjDe,"de") AS ?lde)
+    BIND (STRLANG(?SubjEn,"en") AS ?len)
+    BIND (STRLANG(?SubjAltDe,"de") AS ?lade)
+    BIND (STRLANG(?SubjAltEn,"en") AS ?laen)
+    BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
+    BIND (uri(concat('http://www.snik.eu/ontology/he/',?Objekt)) AS ?o)
+    BIND (xsd:positiveInteger(?SeiteRelation) AS ?pr)
+    BIND (STRLANG(?Definition,"de") AS ?d)
+    BIND (xsd:positiveInteger(?SeiteDefinition) AS ?pd)
+    BIND (uri(concat('http://www.snik.eu/ontology/he/',?Kapitel)) AS ?ch)
+}
