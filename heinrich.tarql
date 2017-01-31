@@ -4,6 +4,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX he: <http://www.snik.eu/ontology/he/>
 PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
 
 CONSTRUCT
 {
@@ -28,11 +29,24 @@ WHERE
     BIND (STRLANG(?SubjAltEn,"en") AS ?laen)
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('he'),?Objekt)) AS ?o)
-    BIND (xsd:positiveInteger(?SeiteRelation) AS ?pr)
+    BIND (xsd:positiveInteger(apf:strSplit(?SeiteRelation," ")) AS ?pr)
     BIND (STRLANG(?Definition,"de") AS ?d)
-    BIND (xsd:positiveInteger(?SeiteDefinition) AS ?pd)
     BIND (uri(concat(tarql:expandPrefix('he'),?Kapitel)) AS ?ch)
 }
+
+CONSTRUCT
+{
+    ?s he:page ?pd;
+}
+FROM <file:htest.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    ?pdd apf:strSplit (?SeiteDefinition ";")
+    BIND(xsd:positiveInteger(?pdd) as ?pd)
+    FILTER(BOUND(?SeiteDefinition))
+}
+
 
 
 CONSTRUCT
