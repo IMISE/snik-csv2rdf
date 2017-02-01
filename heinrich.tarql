@@ -11,7 +11,6 @@ CONSTRUCT
     ?s  a owl:Class;
         meta:subTopClass ?st;
         rdfs:label ?lde, ?len;
-        skos:altLabel ?lade, ?laden;
         ?p ?o;
         he:page ?pd;
         skos:definition ?d;
@@ -25,8 +24,6 @@ WHERE
     BIND (uri(concat(tarql:expandPrefix('meta'), ?SubjektTyp)) AS ?st)
     BIND (STRLANG(?SubjektDe,"de") AS ?lde)
     BIND (STRLANG(?SubjektEn,"en") AS ?len)
-    BIND (STRLANG(?SubjektAltDe,"de") AS ?lade)
-    BIND (STRLANG(?SubjektAltEn,"en") AS ?laen)
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('he'),?Objekt)) AS ?o)
     BIND (xsd:positiveInteger(apf:strSplit(?SeiteRelation," ")) AS ?pr)
@@ -36,7 +33,33 @@ WHERE
 
 CONSTRUCT
 {
-    ?s he:page ?pd;
+    ?s skos:altLabel ?laen.
+}
+FROM <file:htest.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    ?laens apf:strSplit (?SubjektAltEn ";")
+    BIND (STRLANG(?laens,"en") AS ?laen)
+    FILTER(BOUND(?SubjektAltEn))
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?lade.
+}
+FROM <file:htest.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    ?lades apf:strSplit (?SubjektAltDe ";")
+    BIND (STRLANG(?lades,"de") AS ?lade)
+    FILTER(BOUND(?SubjektAltDe))
+}
+
+CONSTRUCT
+{
+    ?s he:page ?pd.
 }
 FROM <file:htest.csv>
 WHERE
@@ -46,7 +69,6 @@ WHERE
     BIND(xsd:positiveInteger(?pdd) as ?pd)
     FILTER(BOUND(?SeiteDefinition))
 }
-
 
 
 CONSTRUCT
