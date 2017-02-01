@@ -29,11 +29,11 @@ Create View Template test As
   
 With
     ?s = uri(he:, ?SubjektUri)
-    ?st = uri(meta:, ?Subjekttyp)
-    ?lde = plainLiteral(?SubjDe,"de")
-    ?len = plainLiteral(?SubjEn,"en")
-    ?lade = plainLiteral(?SubjAltDe,"de")
-    ?laen = plainLiteral(?SubjAltEn,"en")
+    ?st = uri(meta:, ?SubjektTyp)
+    ?lde = plainLiteral(?SubjektDe,"de")
+    ?len = plainLiteral(?SubjektEn,"en")
+    ?lade = plainLiteral(?SubjektAltDe,"de")
+    ?laen = plainLiteral(?SubjektAltEn,"en")
     ?p = uri(?Relation)
     ?o = uri(he:,?Objekt)
     ?pr = typedLiteral(?SeiteRelation,xsd:positiveInteger)

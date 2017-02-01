@@ -22,11 +22,11 @@ FROM <file:htest.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
-    BIND (uri(concat(tarql:expandPrefix('meta'), ?Subjekttyp)) AS ?st)
-    BIND (STRLANG(?SubjDe,"de") AS ?lde)
-    BIND (STRLANG(?SubjEn,"en") AS ?len)
-    BIND (STRLANG(?SubjAltDe,"de") AS ?lade)
-    BIND (STRLANG(?SubjAltEn,"en") AS ?laen)
+    BIND (uri(concat(tarql:expandPrefix('meta'), ?SubjektTyp)) AS ?st)
+    BIND (STRLANG(?SubjektDe,"de") AS ?lde)
+    BIND (STRLANG(?SubjektEn,"en") AS ?len)
+    BIND (STRLANG(?SubjektAltDe,"de") AS ?lade)
+    BIND (STRLANG(?SubjektAltEn,"en") AS ?laen)
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('he'),?Objekt)) AS ?o)
     BIND (xsd:positiveInteger(apf:strSplit(?SeiteRelation," ")) AS ?pr)

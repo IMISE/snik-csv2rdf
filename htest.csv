@@ -1,4 +1,4 @@
-SubjektUri,SubjDe,SubjEn,SubjAltDe,SubjAltEn,Subjekttyp ,Relation,Objekt,SeiteRelation,RestrictionOnProperty,RestrictionObject,RestrictionType,Definition,SeiteDefinition,Kapitel,Kommentar
+SubjektUri,SubjektDe,SubjektEn,SubjektAltDe,SubjektAltEn,SubjektTyp ,Relation,Objekt,SeiteRelation,RestrictionOnProperty,RestrictionObject,RestrictionType,Definition,SeiteDefinition,Kapitel,Kommentar
 Abgb,Allgemeines Bürgerliches Gesetzbuch (Ö),,ABGB,,EntityType,rdfs:subClassOf,Gesetz,,,,,Allgemeines Bürgerliches Gesetzbuch (Österreich).,Website;67,RECHT,
 Ablauforganisation,Ablauforganisation,Organizational Structure,,,EntityType,,,18,meta:isBasedOn,ImKonzept,someValuesFrom,,,ERMOD,
 AbleitenTeilstrategien,Ableiten von Teilstrategien,,,,Function,,,,,,,,117;120,,
