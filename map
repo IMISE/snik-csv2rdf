@@ -1,1 +1,2 @@
 tarql heinrich.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich.ttl
+tarql axiom_heinrich.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > axiom_heinrich.ttl
