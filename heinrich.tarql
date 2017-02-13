@@ -12,7 +12,6 @@ CONSTRUCT
         meta:subTopClass ?st;
         rdfs:label ?lde, ?len;
         ?p ?o;
-        he:page ?pd;
         skos:definition ?d;
         he:chapter ?ch.
 }
@@ -26,7 +25,6 @@ WHERE
     BIND (STRLANG(?SubjektEn,"en") AS ?len)
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('he'),?Objekt)) AS ?o)
-    BIND (xsd:positiveInteger(apf:strSplit(?SeiteRelation," ")) AS ?pr)
     BIND (STRLANG(?Definition,"de") AS ?d)
     BIND (uri(concat(tarql:expandPrefix('he'),?Kapitel)) AS ?ch)
 }
@@ -67,7 +65,7 @@ WHERE
     BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
     ?pdd apf:strSplit (?SeiteDefinition ";")
     BIND(xsd:positiveInteger(?pdd) as ?pd)
-    FILTER(BOUND(?SeiteDefinition))
+    FILTER(BOUND(?SeiteDefinition) && ?pd > 0)
 }
 
 
@@ -77,15 +75,19 @@ CONSTRUCT
 	[
 		a owl:Restriction;
 		owl:onProperty ?rp;
+		he:page ?pr;
 		?rt ?ro;
 	].
 }
 FROM <file:htest.csv>
 WHERE
 {
-	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt))
+	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt) && BOUND(?SeiteRelation))
 	BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
 	BIND (uri(tarql:expandPrefixedName(?RestrictionOnProperty)) AS ?rp)
 	BIND (uri(concat(tarql:expandPrefix('he'),?RestrictionObject)) AS ?ro)
 	BIND (uri(concat(tarql:expandPrefix('owl'),?RestrictionType)) AS ?rt)
+	?prr apf:strSplit (?SeiteRelation";")
+	BIND(xsd:positiveInteger(?prr) as ?pr)
+	filter(?pr>0)
 }
