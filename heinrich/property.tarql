@@ -1,0 +1,73 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX he: <http://www.snik.eu/ontology/he/>
+PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+
+CONSTRUCT
+{
+ ?p	
+	a			owl:ObjectProperty;
+     	rdfs:label		?lde,?len;
+        rdfs:domain 		?domain;
+        rdfs:range		?range;
+        skos:definition		?def;
+	he:page			?page;
+	rdfs:comment		?comment.
+
+}
+
+FROM <file:property.csv>
+WHERE
+{
+ BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+ BIND (STRLANG(?PropertyDe,"de") AS ?lde)
+ BIND (STRLANG(?PropertyEn,"en") AS ?len)
+ BIND (uri(tarql:expandPrefixedName(?Domain)) AS ?domain)
+ BIND (uri(tarql:expandPrefixedName(?Range)) AS ?range)
+ BIND (STRLANG(?Definition,"de") AS ?def)
+ BIND (STRLANG(?Kommentar,"de") AS ?comment)
+}
+
+# Alterative Labels ##################################################
+CONSTRUCT
+{
+    ?p skos:altLabel ?laen.
+}
+FROM <file:property.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    ?laens apf:strSplit (?PropertyAltEn ";")
+    BIND (STRLANG(?laens,"en") AS ?laen)
+    FILTER(BOUND(?PropertyAltEn))
+}
+
+CONSTRUCT
+{
+    ?p skos:altLabel ?lade.
+}
+FROM <file:property.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    ?lades apf:strSplit (?PropertyAltDe ";")
+    BIND (STRLANG(?lades,"de") AS ?lade)
+    FILTER(BOUND(?PropertyAltDe))
+}
+
+# Page #################################################################
+CONSTRUCT
+{
+    ?p he:page ?pd.
+}
+FROM <file:property.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    ?pdd apf:strSplit (?Seite ";")
+    BIND(xsd:positiveInteger(?pdd) as ?pd)
+    FILTER(BOUND(?Seite) && ?pd > 0)
+}

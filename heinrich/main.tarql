@@ -13,10 +13,11 @@ CONSTRUCT
         rdfs:label ?lde, ?len;
         ?p ?o;
         skos:definition ?d;
-        he:chapter ?ch.
+        he:chapter ?ch;
+	meta:consolidated ?cons.
 }
 
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
@@ -27,16 +28,17 @@ WHERE
     BIND (uri(concat(tarql:expandPrefix('he'),?Objekt)) AS ?o)
     BIND (STRLANG(?Definition,"de") AS ?d)
     BIND (uri(concat(tarql:expandPrefix('he'),?Kapitel)) AS ?ch)
+    BIND(xsd:boolean(?Konsolidiert) as ?cons)
 }
 
 CONSTRUCT
 {
     ?s skos:altLabel ?laen.
 }
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
-    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s) 
     ?laens apf:strSplit (?SubjektAltEn ";")
     BIND (STRLANG(?laens,"en") AS ?laen)
     FILTER(BOUND(?SubjektAltEn))
@@ -46,7 +48,7 @@ CONSTRUCT
 {
     ?s skos:altLabel ?lade.
 }
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
@@ -59,7 +61,7 @@ CONSTRUCT
 {
     ?s he:page ?pd.
 }
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
@@ -79,7 +81,7 @@ CONSTRUCT
 		?rt ?ro;
 	].
 }
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
 	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt) && BOUND(?SeiteRelation))
