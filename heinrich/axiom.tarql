@@ -19,7 +19,7 @@ CONSTRUCT
 
 }
 
-FROM <file:htest.csv>
+FROM <file:main.csv>
 WHERE
 {
     FILTER (BOUND(?s) && BOUND(?p) && BOUND(?o) && BOUND(?SeiteRelation))
