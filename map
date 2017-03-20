@@ -1,4 +1,7 @@
-tarql heinrich/main.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/main.ttl
-tarql heinrich/axiom.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/axiom.ttl
-tarql heinrich/property.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/property.ttl
-tarql heinrich/instance.tarql | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/instance.ttl
+mkdir -p heinrich/tmp 
+tarql heinrich/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/ > heinrich/tmp/main.nt
+tarql heinrich/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/  > heinrich/tmp/axiom.nt
+tarql heinrich/property.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/property.nt
+tarql heinrich/instance.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/instance.nt
+
+cat prefix.ttl heinrich/tmp/*.nt | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/all.ttl

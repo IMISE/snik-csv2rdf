@@ -73,13 +73,13 @@ WHERE
 
 CONSTRUCT
 {
-	?s rdfs:subClassOf
-	[
+	?s rdfs:subClassOf ?r.
+	?r 
 		a owl:Restriction;
 		owl:onProperty ?rp;
 		he:page ?pr;
-		?rt ?ro;
-	].
+		?rt ?ro
+	.
 }
 FROM <file:main.csv>
 WHERE
@@ -92,4 +92,5 @@ WHERE
 	?prr apf:strSplit (?SeiteRelation";")
 	BIND(xsd:positiveInteger(?prr) as ?pr)
 	filter(?pr>0)
+	BIND (uri(concat(tarql:expandPrefix('he'),'restriction',md5(concat(str(?rp),str(?rt),str(?ro))))) AS ?r)
 }

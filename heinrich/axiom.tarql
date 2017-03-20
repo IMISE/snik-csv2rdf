@@ -9,13 +9,13 @@ PREFIX apf: <http://jena.apache.org/ARQ/property#>
 CONSTRUCT
 {
 
-[
+?a
 	a			owl:Axiom;  
      	owl:annotatedSource	?s;
         owl:annotatedProperty	?p;
         owl:annotatedTarget	?o;
-	he:page ?pr;
-]
+	he:page ?pr.
+
 
 }
 
@@ -29,4 +29,5 @@ WHERE
     ?prr apf:strSplit (?SeiteRelation";")
     BIND(xsd:positiveInteger(?prr) as ?pr)
     filter(?pr>0)
+    BIND (uri(concat(tarql:expandPrefix('he'),'axiom',md5(concat(str(?s),str(?p),str(?o))))) AS ?a)
 }
