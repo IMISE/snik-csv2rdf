@@ -5,10 +5,13 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX he: <http://www.snik.eu/ontology/he/>
 PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
 PREFIX apf: <http://jena.apache.org/ARQ/property#>
+PREFIX ov: <http://open.vocab.org/terms/>
 
 CONSTRUCT
 {
-    ?s  a owl:Class;
+ <http://www.snik.eu/ontology/he> ov:defines ?s.
+
+ ?s  a owl:Class;
         meta:subTopClass ?st;
         rdfs:label ?lde, ?len;
         ?p ?o;

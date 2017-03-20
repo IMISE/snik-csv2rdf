@@ -3,5 +3,5 @@ tarql heinrich/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/ >
 tarql heinrich/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/  > heinrich/tmp/axiom.nt
 tarql heinrich/property.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/property.nt
 tarql heinrich/instance.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/instance.nt
-
+rapper -i turtle heinrich/ontology.ttl > heinrich/tmp/ontology.nt 
 cat prefix.ttl heinrich/tmp/*.nt | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/all.ttl
