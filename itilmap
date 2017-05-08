@@ -1,0 +1,8 @@
+mkdir -p itil/tmp
+mkdir -p itil/out
+sed "s|{SUB}|it|g" main.tarql.template > itil/tmp/main.tarql
+tarql itil/tmp/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/ > itil/tmp/main.nt
+sed "s|{SUB}|it|g" axiom.tarql.template > itil/tmp/axiom.tarql
+tarql itil/tmp/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/  > itil/tmp/axiom.nt
+rapper -i turtle itil/ontology.ttl > itil/tmp/ontology.nt 
+cat prefix.ttl itil/tmp/*.nt | rapper -i turtle -o turtle - http://www.snik.eu/ontology/it/ > itil/out/all.ttl

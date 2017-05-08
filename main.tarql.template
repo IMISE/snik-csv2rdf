@@ -1,0 +1,99 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX {SUB}: <http://www.snik.eu/ontology/{SUB}/>
+PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+PREFIX ov: <http://open.vocab.org/terms/>
+
+CONSTRUCT
+{
+ <http://www.snik.eu/ontology/{SUB}> ov:defines ?s.
+
+ ?s  a owl:Class;
+        meta:subTopClass ?st;
+        rdfs:label ?lde, ?len;
+        ?p ?o;
+        skos:definition ?d;
+        {SUB}:chapter ?ch;
+	meta:consolidated ?cons.
+}
+
+FROM <file:../main.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
+    BIND (uri(concat(tarql:expandPrefix('meta'), ?SubjektTyp)) AS ?st)
+    BIND (STRLANG(?SubjektDe,"de") AS ?lde)
+    BIND (STRLANG(?SubjektEn,"en") AS ?len)
+    BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Objekt)) AS ?o)
+    BIND (STRLANG(?Definition,"de") AS ?d)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Kapitel)) AS ?ch)
+    BIND(xsd:boolean(?Konsolidiert) as ?cons)
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?laen.
+}
+FROM <file:../main.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s) 
+    ?laens apf:strSplit (?SubjektAltEn ";")
+    BIND (STRLANG(?laens,"en") AS ?laen)
+    FILTER(BOUND(?SubjektAltEn))
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?lade.
+}
+FROM <file:../main.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
+    ?lades apf:strSplit (?SubjektAltDe ";")
+    BIND (STRLANG(?lades,"de") AS ?lade)
+    FILTER(BOUND(?SubjektAltDe))
+}
+
+CONSTRUCT
+{
+    ?s {SUB}:page ?pd.
+}
+FROM <file:../main.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
+    ?pdd apf:strSplit (?SeiteDefinition ";")
+    BIND(xsd:positiveInteger(?pdd) as ?pd)
+    FILTER(BOUND(?SeiteDefinition) && ?pd > 0)
+}
+
+
+CONSTRUCT
+{
+	?s rdfs:subClassOf ?r.
+	?r 
+		a owl:Restriction;
+		owl:onProperty ?rp;
+		{SUB}:page ?pr;
+		?rt ?ro
+	.
+}
+FROM <file:../main.csv>
+WHERE
+{
+	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt) && BOUND(?SeiteRelation))
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
+	BIND (uri(tarql:expandPrefixedName(?RestrictionOnProperty)) AS ?rp)
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?RestrictionObject)) AS ?ro)
+	BIND (uri(concat(tarql:expandPrefix('owl'),?RestrictionType)) AS ?rt)
+	?prr apf:strSplit (?SeiteRelation";")
+	BIND(xsd:positiveInteger(?prr) as ?pr)
+	filter(?pr>0)
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),'restriction',md5(concat(str(?rp),str(?rt),str(?ro))))) AS ?r)
+}
