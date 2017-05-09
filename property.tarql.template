@@ -22,7 +22,7 @@ CONSTRUCT
 
 }
 
-FROM <file:property.csv>
+FROM <file:../property.csv>
 WHERE
 {
  BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
@@ -39,7 +39,7 @@ CONSTRUCT
 {
     ?p skos:altLabel ?laen.
 }
-FROM <file:property.csv>
+FROM <file:../property.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
@@ -52,7 +52,7 @@ CONSTRUCT
 {
     ?p skos:altLabel ?lade.
 }
-FROM <file:property.csv>
+FROM <file:../property.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
@@ -66,7 +66,7 @@ CONSTRUCT
 {
     ?p {SUB}:page ?pd.
 }
-FROM <file:property.csv>
+FROM <file:../property.csv>
 WHERE
 {
     BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)

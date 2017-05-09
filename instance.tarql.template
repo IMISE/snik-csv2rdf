@@ -14,7 +14,7 @@ CONSTRUCT
         skos:definition		?def.
 }
 
-FROM <file:instance.csv>
+FROM <file:../instance.csv>
 WHERE
 {
  BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Klasse)) AS ?c)
