@@ -2,14 +2,14 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX he: <http://www.snik.eu/ontology/he/>
+PREFIX {SUB}: <http://www.snik.eu/ontology/{SUB}/>
 PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
 PREFIX apf: <http://jena.apache.org/ARQ/property#>
 PREFIX ov: <http://open.vocab.org/terms/>
 
 CONSTRUCT
 {
- <http://www.snik.eu/ontology/he> ov:defines ?p.
+ <http://www.snik.eu/ontology/{SUB}> ov:defines ?p.
  
 ?p	
 	a			owl:ObjectProperty;
@@ -17,7 +17,7 @@ CONSTRUCT
         rdfs:domain 		?domain;
         rdfs:range		?range;
         skos:definition		?def;
-	he:page			?page;
+	{SUB}:page			?page;
 	rdfs:comment		?comment.
 
 }
@@ -25,7 +25,7 @@ CONSTRUCT
 FROM <file:property.csv>
 WHERE
 {
- BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+ BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
  BIND (STRLANG(?PropertyDe,"de") AS ?lde)
  BIND (STRLANG(?PropertyEn,"en") AS ?len)
  BIND (uri(tarql:expandPrefixedName(?Domain)) AS ?domain)
@@ -42,7 +42,7 @@ CONSTRUCT
 FROM <file:property.csv>
 WHERE
 {
-    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
     ?laens apf:strSplit (?PropertyAltEn ";")
     BIND (STRLANG(?laens,"en") AS ?laen)
     FILTER(BOUND(?PropertyAltEn))
@@ -55,7 +55,7 @@ CONSTRUCT
 FROM <file:property.csv>
 WHERE
 {
-    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
     ?lades apf:strSplit (?PropertyAltDe ";")
     BIND (STRLANG(?lades,"de") AS ?lade)
     FILTER(BOUND(?PropertyAltDe))
@@ -64,12 +64,12 @@ WHERE
 # Page #################################################################
 CONSTRUCT
 {
-    ?p he:page ?pd.
+    ?p {SUB}:page ?pd.
 }
 FROM <file:property.csv>
 WHERE
 {
-    BIND (uri(concat(tarql:expandPrefix('he'),?PropertyUri)) AS ?p)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?PropertyUri)) AS ?p)
     ?pdd apf:strSplit (?Seite ";")
     BIND(xsd:positiveInteger(?pdd) as ?pd)
     FILTER(BOUND(?Seite) && ?pd > 0)

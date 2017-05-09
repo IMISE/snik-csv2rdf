@@ -1,7 +1,48 @@
-mkdir -p heinrich/tmp 
-tarql heinrich/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/ > heinrich/tmp/main.nt
-tarql heinrich/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/he/  > heinrich/tmp/axiom.nt
-tarql heinrich/property.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/property.nt
-tarql heinrich/instance.tarql | rapper -i turtle  - http://www.snik.eu/ontology/he/ > heinrich/tmp/instance.nt
-rapper -i turtle heinrich/ontology.ttl > heinrich/tmp/ontology.nt 
-cat prefix.ttl heinrich/tmp/*.nt | rapper -i turtle -o turtle - http://www.snik.eu/ontology/he/ > heinrich/all.ttl
+#!/bin/bash
+set -e
+SUBS="it he"
+for s in $SUBS
+do
+ if [ ! -d "${s}" ]
+ then
+  echo "********* ERROR: DIRECTORY ${s} DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} ********************************"
+  elif [ ! -e "${s}/main.csv" ]
+  then
+   echo "********* INPUT FILE ${s}/main.csv DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} *************************"
+   else
+    echo "********* Converting ${s} ******************************************************************************"
+    mkdir -p ${s}/tmp
+    mkdir -p ${s}/out
+    echo "** Generating main triples ******************************"
+    sed "s|{SUB}|${s}|g" main.tarql.template > ${s}/tmp/main.tarql
+    tarql ${s}/tmp/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/tmp/main.nt
+    echo "** Generating axioms *************************************"
+    sed "s|{SUB}|${s}|g" axiom.tarql.template > ${s}/tmp/axiom.tarql
+    tarql ${s}/tmp/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/  > ${s}/tmp/axiom.nt
+    
+    if [ -e "${s}/instance.csv" ]
+    then
+    echo "** Generating instances *************************************"
+    sed "s|{SUB}|${s}|g" instance.tarql.template > ${s}/tmp/instance.tarql
+    tarql ${s}/tmp/instance.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/tmp/instance.nt
+    else
+    echo "** WARNING: ${s}/instance.csv DOES NOT EXIST. SKIPPING INSTANCES. ************************************"
+    fi
+
+    if [ -e "${s}/property.csv" ]
+    then
+    echo "** Generating properties ***********************************"
+    sed "s|{SUB}|${s}|g" property.tarql.template > ${s}/tmp/property.tarql
+    tarql ${s}/tmp/property.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/tmp/property.nt
+    else
+    echo "** WARNING: ${s}/property.csv DOES NOT EXIST. SKIPPING PROPERTIES ************************************"
+    fi
+    
+    echo "** Merging ***********************************x************"
+    rapper -i turtle ${s}/ontology.ttl > ${s}/tmp/ontology.nt 
+    cat prefix.ttl ${s}/tmp/*.nt | rapper -i turtle -o turtle - http://www.snik.eu/ontology/${s}/ > ${s}/out/all.ttl
+    echo "** Testing ************************************************"
+    rapper -i turtle -c ${s}/out/all.ttl
+    echo "********************************************************************************************************"
+   fi
+done

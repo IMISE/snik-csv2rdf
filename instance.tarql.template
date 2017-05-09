@@ -2,7 +2,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX he: <http://www.snik.eu/ontology/he/>
+PREFIX {SUB}: <http://www.snik.eu/ontology/{SUB}/>
 PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
 PREFIX apf: <http://jena.apache.org/ARQ/property#>
 
@@ -17,8 +17,8 @@ CONSTRUCT
 FROM <file:instance.csv>
 WHERE
 {
- BIND (uri(concat(tarql:expandPrefix('he'),?Klasse)) AS ?c)
- BIND (uri(concat(tarql:expandPrefix('he'),?InstanzUri)) AS ?i)
+ BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Klasse)) AS ?c)
+ BIND (uri(concat(tarql:expandPrefix('{SUB}'),?InstanzUri)) AS ?i)
  BIND (STRLANG(?InstanzDe,"de") AS ?lde)
  BIND (STRLANG(?InstanzEn,"en") AS ?len)
  BIND (STRLANG(?Definition,"de") AS ?def)
