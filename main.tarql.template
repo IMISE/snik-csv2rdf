@@ -30,7 +30,7 @@ WHERE
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Objekt)) AS ?o)
     BIND (STRLANG(?Definition,"de") AS ?d)
-    BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Kapitel)) AS ?ch)
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),replace(replace(?Kapitel,"[^0-9A-Za-z]","-"),"^[0-9]","ch-\\1"))) AS ?ch)
     BIND(xsd:boolean(?Konsolidiert) as ?cons)
 }
 
