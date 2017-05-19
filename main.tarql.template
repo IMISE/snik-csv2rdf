@@ -30,7 +30,10 @@ WHERE
     BIND (uri(tarql:expandPrefixedName(?Relation)) AS ?p)
     BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Objekt)) AS ?o)
     BIND (STRLANG(?Definition,"de") AS ?d)
-    BIND (uri(concat(tarql:expandPrefix('{SUB}'),replace(replace(?Kapitel,"[^0-9A-Za-z]","-"),"^[0-9]","ch-\\1"))) AS ?ch)
+# Chapters should only consist of numbers and letters, so that the prefix:suffix syntax works.
+# Replace other characters with '-'.
+# Suffixes cannot start with numbers so add "ch-" in that case. 
+    BIND (uri(concat(tarql:expandPrefix('{SUB}'),replace(replace(?Kapitel,"[^0-9A-Za-z]","-"),"^[^A-Za-z]","ch-$0"))) AS ?ch)
     BIND(xsd:boolean(?Konsolidiert) as ?cons)
 }
 
@@ -73,26 +76,42 @@ WHERE
     FILTER(BOUND(?SeiteDefinition) && ?pd > 0)
 }
 
-
+# Restrictions without page
 CONSTRUCT
 {
 	?s rdfs:subClassOf ?r.
 	?r 
 		a owl:Restriction;
 		owl:onProperty ?rp;
-		{SUB}:page ?pr;
 		?rt ?ro
 	.
 }
 FROM <file:../main.csv>
 WHERE
 {
-	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt) && BOUND(?SeiteRelation))
+	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt))
 	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
 	BIND (uri(tarql:expandPrefixedName(?RestrictionOnProperty)) AS ?rp)
 	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?RestrictionObject)) AS ?ro)
 	BIND (uri(concat(tarql:expandPrefix('owl'),?RestrictionType)) AS ?rt)
-	?prr apf:strSplit (?SeiteRelation";")
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),'restriction',md5(concat(str(?rp),str(?rt),str(?ro))))) AS ?r)
+
+}
+
+# Process restriction pages separately to make them optional. Otherwise apf:strSplit crashes.
+CONSTRUCT
+{
+	?r {SUB}:page ?pr.
+}
+FROM <file:../main.csv>
+WHERE
+{
+	FILTER (BOUND(?s) && BOUND(?rp) && BOUND(?ro) && BOUND(?rt) && BOUND(?SeiteRestriction))
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?SubjektUri)) AS ?s)
+	BIND (uri(tarql:expandPrefixedName(?RestrictionOnProperty)) AS ?rp)
+	BIND (uri(concat(tarql:expandPrefix('{SUB}'),?RestrictionObject)) AS ?ro)
+	BIND (uri(concat(tarql:expandPrefix('owl'),?RestrictionType)) AS ?rt)
+	?prr apf:strSplit (?SeiteRestriction ";")
 	BIND(xsd:positiveInteger(?prr) as ?pr)
 	filter(?pr>0)
 	BIND (uri(concat(tarql:expandPrefix('{SUB}'),'restriction',md5(concat(str(?rp),str(?rt),str(?ro))))) AS ?r)
