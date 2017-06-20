@@ -1,0 +1,81 @@
+SubjektUri,SubjektDe,SubjektEn,SubjektAltDe,SubjektAltEn,SubjektTyp,Relation,Objekt,SeiteRelation,RestrictionOnProperty,RestrictionCardinality,RestrictionObject,RestrictionType,SeiteRestriction,Definition,SeiteDefinition,Kapitel,Kommentar
+ItStrategieManagement,IT-Strategiemanagement,,strategisches Informationsmanagement,,Function,,,,,,,,,"Der Begriff IT-Strategie hat im UKL sowohl die Bedeutung des Dokument ""IT Strategie"", also Strategischer Rahmenplan, als auch die Aufgabe des CIOs, sich um die IT-Strategie zu kümmern. In der CIOx Ontologie wird die Aufgabe als ItStrategyManagement bezeichnet und der Strategische Rahmenplan als ItStrategie.",,,"Begriff  ItStrategieManagement eingefügt, um die Synonyme IT-Strategie und Strategisches Informationsmanagement zu trennen"
+ItStrategieManagement,,,,,Function,,,,meta:uses,,ItStrategie,someValuesFrom,,,,,
+ItStrategieManagement,,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,,,,Die Aufteilung der Aufgabe ItStrategieManagement in zwei Subtasks: Erstellung der Strategie und Verwendung der Strategie hat sich so aus dem RE ergeben.
+ItStrategieManagement,,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,,,,
+ItStrategie,IT-Strategie,IT Strategy,Strategischer Rahmenplan,strategic information management plan,EntityType,,,,,,,,,,,,
+ItStrategieErstellung,IT-Strategie Erstellung,,,,Function,,,,meta:functionComponent,,ItStrategieManagement,someValuesFrom,,,,,
+ChiefInformationOfficer,Leiter B1,chief information officer,,CIO,Role,,,,meta:isResponsibleForFunction,,ItStrategieManagement,someValuesFrom,,,,,
+ItStrategieStakeholderGenehmigung,Genehmigung IT-Strategie Stakeholder,,,,Function,,,,,,,,,"Der Lenkungsausschuss der IT-Strategie muss neu zusammengesetzt werden und dabei Stakeholder aus den Bereichen (nicht limitiert auf) Patientenversorgung, Forschung und Lehre, Informationsmanagement. 
+Stakeholder benennen ihre Erwartungen und Anforderungen an die IT-Strategie aus ihren Bereichen. Präsentation und Abstimmung des Vorschlags des Lenkungsausschuss bei Auftraggeber (Vorstand und Fakultätsleitung",,,
+ItStrategieErstellung,,,,,Function,,,,meta:functionComponent,,ItStrategieStakeholderGenehmigung,someValuesFrom,,,,,
+Lenkungsausschuss,Lenkungsausschuss ,,,,Role,,,,meta:roleComponent,,ItStrategieStakeholder,someValuesFrom,,Der Lenkungsausschuss besteht aus ITStrategieStakeholdern,,,
+StakeholderPatientenversorgung,Stakeholder aus der Patientenversorgung,,,,Role,rdfs:subClassOf,ItStrategieStakeholder,,,,,,,,,,
+StakeholderForschungUndLehre,Stakeholder aus Forschung und Lehre,,,,Role,rdfs:subClassOf,ItStrategieStakeholder,,,,,,,,,,
+StakeholderInformationsmanagement,Stakeholder aus dem Informationsmanagement,,,,Role,rdfs:subClassOf,ItStrategieStakeholder,,,,,,,,,,
+ErwartungenFormulieren,Erwartungen an IT-Strategie formulieren,,,,Function,,,,meta:updates,,ItStrategieErwartung,someValuesFrom,,,,,
+ItStrategieStakeholder,IT-Strategie Stakeholder,,Stakeholder,,Role,,,,meta:isResponsibleForFunction,,ErwartungenFormulieren,someValuesFrom,,,,,
+AnforderungFormulieren,Anforderungen an IT-Strategie formulieren,,,,Function,,,,meta:updates,,ItStrategieAnforderung,someValuesFrom,,,,,
+ItStrategieStakeholder,IT-Strategie Stakeholder,,,,Role,,,,meta:isResponsibleForFunction,,AnforderungFormulieren,someValuesFrom,,,,,
+ItStrategieAnforderung,,,,,EntityType,,,,,,,,,,,,
+ItStrategieErwartung,,,,,EntityType,,,,,,,,,,,,
+ItStrategieAuftraggeber,IT-Strategie Auftraggeber,,,,Role,,,,meta:roleComponent,,Vorstand,someValuesFrom,,,,,
+ItStrategieAuftraggeber,IT-Strategie Auftraggeber,,,,Role,,,,meta:roleComponent,,Fakultaetsleitung,someValuesFrom,,,,,
+ItStrategieHandlungsfelder,IT-Strategie Handlungsfelder,,,,EntityType,,,,meta:entityTypeComponent,,ItStrategie,someValuesFrom,,,,,
+ItStrategieHandlungsfelderPriorisierung,IT-Strategie Handlungsfelder Priorisierung,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,"Zur Erarbeitung und Priorisierung von zukünftigen IT-Strategie-Themen werden Workshops mit den Stakeholdern durchgeführt. 
+Insgesamt 14 Workshops mit unterschiedlichen Themen wurden durchgeführt. Dabei wird zentral die Frage bearbeitet: „Welche Problemfelder gibt es in der Organisation über die IT?“ und: „Welche wichtigen Themen des B1 gibt es?“. Die damit gewonnenen Themen werden zu Themenbereichen gruppiert (geclustert) und zu größeren IT-Maßnahmen synthetisiert. Jede IT-Maßnahme lässt sich ein oder mehreren Unternehmenszielen zuordnen.",,,
+Workshop,Workshop,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,,,,
+Workshop,Workshop,,,,Function,,,,meta:functionComponent,,ItStrategieHandlungsfelderPriorisierung,,,,,,
+ItMassnahme,IT-Maßnahme,,,,EntityType,,,,,,,,,,,,
+ItMassnahme,IT-Maßnahme,,,,EntityType,,,,meta:entityTypeComponent,,Unternehmensziel,someValuesFrom,,,,,
+ItStrategieHandlungsfelderGenehmigung,IT-Strategie Handlungsfelder Genehmigung ,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,"Das Projektteam erarbeitet Handlungsfelder (Themen) für Workshops, in denen Themen für die IT-Maßnahmen erarbeitet werden. ",,,
+Workshop,Workshop,,,,Function,,,,meta:updates,,WorkshopErgebnisse,someValuesFrom,,,,,
+WorkshopErgebnisse,Workshop Ergebnisse,,,,EntityType,,,,,,,,,,,,
+WorkshopErgebnisseEvaluation,Workshop Ergebnisse Evaluation ,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,Die Analyse und Synthese der Workshop-Ergebnisse liefert die Liste der IT-Maßnahmen. Dies passiert in Zusammenarbeit des CIO mit dem B1 Teil des Projektteams (Abteilungsleiter,,,
+WorkshopErgebnisseEvaluation,Workshop Ergebnisse Evaluation ,,,,Function,,,,meta:uses,,WorkshopErgebnisse,someValuesFrom,,,,,
+ItMassnahmenDokumentation,IT Maßnahmen Dokumentation,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,"Ausgehend von den Ergebnissen der Workshops wird der Maßnahmenkatalog erstellt. IT-Maßnahmen sind große, breite Themen, die in der Strategie textuell beschrieben werden. ",,,
+ItMassnahmenDokumentation,IT-Maßnahmen Dokumentation,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,,,,
+ItMassnahmenDokumentation,IT-Maßnahmen Dokumentation,,,,Function,,,,meta:uses,,WorkshopErgebnisse,someValuesFrom,,,,,
+ItMassnahmenPriorisierung,IT Maßnahmen Priorisierung,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,Der Maßnahmenkatalog wird priorisiert. Weniger wichtige IT-Maßnahmen werden nicht berücksichtigt. Dadurch wird die Auswahl der zu berücksichtigenden IT-Maßnahmen getroffen. Nicht alle priorisierten IT-Maßnahmen kommen letztendlich in die IT-Strategie. ,,,
+ItMassnahmenPriorisierung,IT Maßnahmen Priorisierung,,,,Function,,,,meta:uses,,ItMassnahme,someValuesFrom,,,,,
+ItMassnahmenPriorisierung,IT-Maßnahmen Priorisierung ,,,,Function,,,,meta:updates,,Prioritaet,someValuesFrom,,,,,
+ItMassnahmenPriorisierung,IT-Maßnahmen Priorisierung ,,,,Function,,,,meta:updates,,Massnahmenkatalog,someValuesFrom,,,,,
+Massnahmenkatalog,Maßnahmenkatalog ,,ITStrategie,,EntityType,,,,meta:isAssociatedWith,,ItMassnahme,someValuesFrom,,,,,
+Lenkungsausschuss,Lenkungsausschuss ,,,,Role,,,,meta:approvesEntityType,,Massnahmenkatalog,someValuesFrom,,,,,
+LenkungsausschussAbstimmung,LenkungsausschussAbstimmung ,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,,,,
+LenkungsausschussAbstimmung,LenkungsausschussAbstimmung ,,,,Function,,,,meta:uses,,Massnahmenkatalog,someValuesFrom,,,,,
+ItStrategiePraesentation,ITStrategiePräsentation ,,,,Function,,,,meta:functionComponent,,ItStrategieErstellung,someValuesFrom,,"Informationskampagne zur IT-Strategie muss durchgeführt werden. D.h. die Existenz und der Inhalt, sowie der verbindliche Charakter wird gegenüber der gesamten UML (UKL und MF) bekannt gegeben. ",,,
+ItStrategiePraesentation,IT-Strategie Präsentation ,,,,Function,,,,meta:uses,,Massnahmenkatalog,someValuesFrom,,,,,
+ItStrategieVerwendung,IT-Strategie Verwendung ,,,,Function,,,,meta:functionComponent,,ItStrategieManagement,someValuesFrom,,,,,
+ProjektPriorisierung,Projekt Priorisierung,,,PortfolioManagement,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Neu hinzukommende Projekte (aus Anträgen oder Changes), müssen ggü. der IT-Strategie bewertet werden. Welchen IT-Maßnahmen tragen diese Projekte bei? Wenn ein Beitrag geleistet wird, wird das Projekt gefördert. Dieser Beitrag ist Priorisierungskriterium.
+Diese Bewertung wird aktuell implizit (und durch Kenntnis der IT-Strategie durch den CIO) durchgeführt.",,,
+ProjektPriorisierung,Projekt Priorisierung,,,,Function,,,,meta:uses,,Projektdefinition,someValuesFrom,,,,,"Die Verbindung Projektpriorisierung zu Projektdefinition wurde nicht explizit in Interviews Erähnt. Ich habe sie deshalb hinzugenommen, weil die Beiträge eines Projekts zu IT-Maßnahmen aus der Projektdefinition kommen muss. ""Welchen IT-Maßnahmen tragen diese Projekte bei? Wenn ein Beitrag geleistet wird, wird das Projekt gefördert. Dieser Beitrag ist Priorisierungskriterium."" "
+ProjektPriorisierung,Projekt Priorisierung,,,,Function,,,,meta:uses,,ItStrategie,someValuesFrom,,,,,
+ChangeBewertung,Change Bewertung ,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Bewertung ob ein Change einer IT-Maßnahme beiträgt. Der Change wird angenommen, wenn er einer IT-Maßnahme beiträgt. 
+Diese Bewertung wird aktuell implizit (und durch Kenntnis der IT-Strategie durch den CIO) durchgeführt. 
+",,,
+ChangeBewertung,Change Bewertung ,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,,,,
+ChangeBewertung,Change Bewertung ,,,,Function,,,,meta:uses,,Change,someValuesFrom,,,,,
+ChangeBewertung,Change Bewertung ,,,,Function,,,,meta:uses,,ItStrategie,someValuesFrom,,,,,
+WirtschaftlicheRechtfertigung,wirtschaftliche Rechtfertigung,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Die IT-Strategie hilft bei der Rechtfertigung, weshalb bestimmte Investitionen getätigt werden müssen.
+1) Geplante Investitionen werden in Frage gestellt und müssen daher gerechtfertigt werden. Dafür ist die IT-Strategie als Committment des Vorstandes eine Argumentationshilfe.
+2) Aktuell gibt es keine explizite Verknüpfung zwischen Projekten (aus der Projektwarteliste) und der IT-Strategie
+3) Zusätzliche Ressourcen bei Personalplanung können aktuell schlecht gerechtfertigt werden.
+",,,
+ProspektiveRechtfertigung,Prospektive Rechtfertigung,,,,Function,,,,meta:functionComponent,,WirtschaftlicheRechtfertigung,someValuesFrom,,"Die IT-Strategie hilft bei der Rechtfertigung, weshalb bestimmte Investitionen getätigt werden müssen. ",,,
+RetrospektiveRechtfertigung,Retrospektive Rechtfertigung,,,,Function,,,,meta:functionComponent,,WirtschaftlicheRechtfertigung,someValuesFrom,,,,,
+WirtschaftlicheRechtfertigung,Wirtschaftliche Rechtfertigung,,,,Function,,,,meta:isAssociatedWith,,Investition,someValuesFrom,,,,,
+ProjektSicherheitskrititkalitaet,Projekt-Sicherheitskrititkalität,,,,EntityType,,,,meta:entityTypeComponent,,Project,someValuesFrom,,,,,
+ProjektSicherheitskrititkalitaetsBewertung,Projekt-SicherheitskrititkalitätsBewertung,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Jedes laufende Projekt der Projektliste wird betrachtet. Wenn es eine Sicherheitsrelevanz hat, wird dieses Projekt genauer betrachtet.  Nach Installation eines CISO (IT-Sicherheitsbeauftragter) benötigt dieser eine Zuordnung, welche Projekte welchen IT-Maßnahmen beitragen. Der CISO bekommt ein Sicherheitsgremium. Die Kenntnis der sicherheitsrelevanten Projekte ist ein wesentliches Ergebnis. Sobald Projektplan/Budgets fertig geplant wurde, sollen die sicherheits-relevanten Projekte genehmigt werden. Evtl. Kritikalität in der Projektwarteliste pflegen.",,,
+ProjektSicherheitskrititkalitaetsBewertung,Projekt-SicherheitskrititkalitätsBewertung,,,,Function,,,,meta:uses,,ProjektSicherheitskrititkalitaet,someValuesFrom,,,,,
+ProjektSicherheitskrititkalitaetsBewertung,,,,,Function,,,,meta:uses,,Projektliste,someValuesFrom,,,,,
+ItStrategieFinanzierungsantraegeVerwendung,Verwenden der IT-Strategie für Finanzierungsanträge,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Die IT-Strategie ist eine Grundlage für einige Finanzierungsanträge beim Bund oder Land. Nicht nur bei IT-Anträgen, sondern auch bei anderweitigen Großgeräten, Förderprogrammen, oder Klinische Studien. ",,,
+ItStrategieFinanzierungsantraegeVerwendung,,,,,Function,,,,meta:uses,,ItStrategie,someValuesFrom,,,,,
+ItStrategieFinanzierungsantraegeVerwendung,,,,,Function,,,,meta:updates,,Finanzierungsantrag,someValuesFrom,,,,,
+ItStrategieEinhaltungBewertung,ItStrategieEinhaltungBewertung,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,"Problem: 
+Einige IT-Maßnahmen können nicht durchgeführt oder vollständig bearbeitet werden. Dafür müssen Argumente gefunden werden.
+Überprüfung der IT-Strategie findet aktuell bei Neuerstellung der IT-Strategie statt. Eigentlich sollte die Überprüfung jedoch regelmäßig explizit stattfinden. Dafür sollte ein IT-Board etabliert werden. Politische Zwänge haben das IT-Board jedoch verhindert.
+Dazu gehört die Etablierung der Lenkungsgruppe IT-Board. Diese sollte halbjährlich Tagen und bewerten, was die IT im letzten halben Jahr gemacht hat und inwiefern die IT-Strategie erreicht werden kann. (Sind wir auf dem roten Pfad?). Das IT-Board prüft die Abarbeitung der vereinbarten IT-Maßnahmen. Das IT-Board existiert nicht.",,,
+ChiefInformationOfficer,,,,,Role,,,,meta:isResponsibleForFunction,,ItStrategieEinhaltungBewertung,,,,,,
+ItStrategieEinhaltungBewertung,ItStrategieEinhaltungBewertung,,,,Function,,,,meta:functionComponent,,ItStrategieVerwendung,someValuesFrom,,,,,
+ItStrategieEinhaltungBewertung,ItStrategieEinhaltungBewertung,,,,Function,,,,meta:uses,,ItStrategie,someValuesFrom,,,,,
