@@ -13,4 +13,4 @@ No further changes to the extraction tables or the resulting RDF file will have 
 ## Requirements
 
 * Linux
-* the source CSV files you want to convert, some of them are contained in a [release](https://github.com/IMISE/snik-csv2rdf/releases)
+* the source CSV files you want to convert, some of them are contained in a [release](https://github.com/IMISE/snik-csv2rdf/releases). Some small files are already saved in the repository.
