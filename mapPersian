@@ -1,0 +1,22 @@
+#!/bin/bash
+#Adapted copy of map, overkill right now but easier adaptability for future translations.
+
+set -e
+SUBS="bb"
+for s in $SUBS
+do
+ if [ ! -d "${s}" ]
+ then
+  echo "********* ERROR: DIRECTORY ${s} DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} ********************************"
+  elif [ ! -e "${s}/persian.csv" ]
+  then
+   echo "********* INPUT FILE ${s}/persian.csv DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} *************************"
+   else
+    echo "********* Converting ${s} ******************************************************************************"
+    mkdir -p ${s}/tmp
+    cp persian.tarql ${s}/tmp/persian.tarql
+    mkdir -p ${s}/out
+    echo "** Generating main triples ******************************"
+    tarql ${s}/tmp/persian.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/out/persian.ttl
+ fi
+done

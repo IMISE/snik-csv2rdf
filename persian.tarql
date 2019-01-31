@@ -1,0 +1,26 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CONSTRUCT
+{
+    ?s rdfs:label ?lp.
+}
+FROM <file:../persian.csv>
+WHERE
+{
+   BIND (URI(?c) as ?s)
+   BIND (STRLANG(?Persian,"fa") AS ?lp)
+   FILTER(BOUND(?Persian))
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?lp2.
+}
+FROM <file:../persian.csv>
+WHERE
+{
+    BIND (URI(?c) as ?s)
+    BIND (STRLANG(?Persian2,"fa") AS ?lp2)
+    FILTER(BOUND(?Persian2))
+}
