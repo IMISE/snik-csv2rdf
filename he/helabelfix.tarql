@@ -1,0 +1,47 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX he: <http://www.snik.eu/ontology/he/>
+PREFIX meta: <http://www.snik.eu/ontology/meta/>
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+PREFIX ov: <http://open.vocab.org/terms/>
+
+CONSTRUCT
+{
+  ?s rdfs:label ?lde, ?len.
+}
+
+FROM <file:helabelfix.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    BIND (STRLANG(?SubjektDe,"de") AS ?lde)
+    BIND (STRLANG(?SubjektEn,"en") AS ?len)
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?laen.
+}
+FROM <file:helabelfix.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    ?laens apf:strSplit (?SubjektAltEn ";")
+    BIND (STRLANG(?laens,"en") AS ?laen)
+    FILTER(BOUND(?SubjektAltEn))
+}
+
+CONSTRUCT
+{
+    ?s skos:altLabel ?lade.
+}
+FROM <file:helabelfix.csv>
+WHERE
+{
+    BIND (uri(concat(tarql:expandPrefix('he'),?SubjektUri)) AS ?s)
+    ?lades apf:strSplit (?SubjektAltDe ";")
+    BIND (STRLANG(?lades,"de") AS ?lade)
+    FILTER(BOUND(?SubjektAltDe))
+}
