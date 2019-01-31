@@ -1,92 +1,92 @@
 SubjektUri,SubjektDe,SubjektAltDe,SubjektEn,SubjektAltEn
-http://www.snik.eu/ontology/he/AuslagerungvonAufgabenKompetenzenundRessourcen,"Auslagerung von Aufgaben, Kompetenzen und Ressourcen",,,
-http://www.snik.eu/ontology/he/DezentralisierungvonAufgabenKompetenzenundRessourcen,"Dezentralisierung von Aufgaben, Kompetenzen und Ressourcen",,,
-http://www.snik.eu/ontology/he/EinbindungvonAufgabenKompetenzenundRessourcen,"Einbindung von Aufgaben, Kompetenzen und Ressourcen",,,
-http://www.snik.eu/ontology/he/ZentralisierungvonAufgabenKompetenzenundRessourcen,"Zentralisierung von Aufgaben, Kompetenzen und Ressourcen",,,
-http://www.snik.eu/ontology/he/Abrechnungsmodell,Kostenmodell,Preismodell,,
-http://www.snik.eu/ontology/he/Abteilung,Abteilung,,department,
-http://www.snik.eu/ontology/he/AnnualLossExposure,,,Annual Loss Exposure,ALE
-http://www.snik.eu/ontology/he/Auftrag,Job Order,,,
-http://www.snik.eu/ontology/he/Ausweichrechenzentrum,Notfallrechenzentrum,,Backup Computing Center,
-http://www.snik.eu/ontology/he/Authentifizieren,Authentifizierung,,Authentication,
-http://www.snik.eu/ontology/he/Benutzerservice,Benutzerservice,,Helpdesk,User-Help-Desk;Service Desk
-http://www.snik.eu/ontology/he/Bestandsmanagement,Bestandsmanagement,,Asset Management,Inventory Management
-http://www.snik.eu/ontology/he/Bitkom,Bundesverband Informationswirtschaft Telekommunikation und neue Medien e.V.,Bitkom,,
-http://www.snik.eu/ontology/he/BusinessItAlignment,,,Business-IT alignment,
-http://www.snik.eu/ontology/he/COBITInformationCriterion,CobiT Qualitätsmerkmal für Information ,,,
-http://www.snik.eu/ontology/he/CollaborationTools,,,Collaborative Software,Groupware
-http://www.snik.eu/ontology/he/DBMS,Datenbankverwaltungssystem,,Database Management System,
-http://www.snik.eu/ontology/he/Dienstleistungsqualitaet,Servicequalität,,Service Quality,
-http://www.snik.eu/ontology/he/Durchlaufzeit,,,Cycle Time,Lead Time
-http://www.snik.eu/ontology/he/EPK,ereignisgesteuerte Prozesskette,,Event-driven Process Chain,
-http://www.snik.eu/ontology/he/EVA,Earned-Value-Analyse,,Earned Value Analysis,
-http://www.snik.eu/ontology/he/Einsatzplan,,,Initiative Guide,Plan of Action
-http://www.snik.eu/ontology/he/Entscheidungsregel,Aggregationsfunktion,,Decision Rule,
-http://www.snik.eu/ontology/he/Entwicklungsrueckstau,Anwendungsrückstau,,Application Backlog,
-http://www.snik.eu/ontology/he/Fachkompetenz,Sachkompetenz,Fachwissen,hard skills,
-http://www.snik.eu/ontology/he/GanzheitlicheSicht,Umfassende Sicht,,Total Quality management,TQM
-http://www.snik.eu/ontology/he/Grundbegriff,Basisbegriff,Elementarbegriff,Basic Term,
-http://www.snik.eu/ontology/he/Grundsatz,Prinzip,,Principle,
-http://www.snik.eu/ontology/he/Humanvermoegen,Humankapital,,Human Recource,
-http://www.snik.eu/ontology/he/InformationellesGleichgewicht,Informationsstand,,Informational Balance,
-http://www.snik.eu/ontology/he/ItDienstleistung,,,IT Service,
-http://www.snik.eu/ontology/he/ItInfrastruktur,Technikinfrastruktur,technische Infrastruktur,IT Infrastructure,
-http://www.snik.eu/ontology/he/Katastrophe,,,Catastrophe,Disaster
-http://www.snik.eu/ontology/he/Kompetenzzentrum,,,Competence,Center Center of Excellence
-http://www.snik.eu/ontology/he/Kriterium,Zielkriterium,,Criterion,
-http://www.snik.eu/ontology/he/Leitstrategie,,,Key Strategy,Mission Strategy
-http://www.snik.eu/ontology/he/Mantelvereinbarung,Rahmenvertrag,,blanket agreement,
-http://www.snik.eu/ontology/he/Messgroesse,Metrik,,measured value,measured quantity
-http://www.snik.eu/ontology/he/Nutzen,Nutzwert,,benefit,
-http://www.snik.eu/ontology/he/Nutzenpreis,Knappheitspreis,,benefit rate ,
-http://www.snik.eu/ontology/he/Nutzwert,Nutzen,,Value of Benefit,
-http://www.snik.eu/ontology/he/Operation,Aktivität,Arbeitsschritt,Operation,
-http://www.snik.eu/ontology/he/OperationellesRisiko,Operationales Risiko,Operatives Risiko,Operational Risk,
-http://www.snik.eu/ontology/he/OutsourcingGrad,Outsourcing-Reichweite,,Degree of Outsourcing,
-http://www.snik.eu/ontology/he/OutsourcingNehmer,Outsourcing-Kunde,,Outsourcing Client,
-http://www.snik.eu/ontology/he/PIm,Persönliches Informationsmanagement,,Personal Information Management,
-http://www.snik.eu/ontology/he/Paarvergleich,Paarweiser Vergleich,,Paired Comparison,
-http://www.snik.eu/ontology/he/Prinzip,Grundsatz,,Principle,
-http://www.snik.eu/ontology/he/Produktaktivierung,Softwareaktivierung,,Product Activation,
-http://www.snik.eu/ontology/he/Projektrisiko,,,project risk,organizational risk
-http://www.snik.eu/ontology/he/Pruefliste,Prüfungsfragebogen,Checkliste,Checklist,
-http://www.snik.eu/ontology/he/Qualitaetsanforderung,Anforderung,,Quality Requirement,
-http://www.snik.eu/ontology/he/Qualitaetsmerkmal,Qualitätseigenschaft,,Quality Characteristic,
-http://www.snik.eu/ontology/he/RACI,,,Responsible Accountable Consulted and Informed,
-http://www.snik.eu/ontology/he/RAID,,,Redundant Array of Inexpensive Disks,Redundant array of Independent Disks
-http://www.snik.eu/ontology/he/Rettungsplan,Evakuierungsplan,,Rescue Guide,
-http://www.snik.eu/ontology/he/Risikoanalyse,,,Risk Analysis,Risk Assessment
-http://www.snik.eu/ontology/he/SCM,Lieferkettenmanagement,,Supply Chain Management,
-http://www.snik.eu/ontology/he/Schwachstelle,,,Vulnerability,weakness
-http://www.snik.eu/ontology/he/Schwaeche,Schwachstelle,,,
-http://www.snik.eu/ontology/he/Selbstkompetenz,Humankompetenz,Persönlichkeitskompetenz,,
-http://www.snik.eu/ontology/he/ServiceDesk,Benutzerservice-Zentrum,,Helpdesk,User-Help-Desk
-http://www.snik.eu/ontology/he/ServiceLevelAgreement,Serviceebenen-Vereinbarung,,,SLA
-http://www.snik.eu/ontology/he/ServiceLevelRequirement,Serviceebenen-Anforderung,,,SLR
-http://www.snik.eu/ontology/he/ServiceLevelSpecification,Serviceebenen-Spezifizierung,,,SLS
-http://www.snik.eu/ontology/he/Sicherheit,,,Security,Safety
-http://www.snik.eu/ontology/he/Sicherheitsgefaehrdung,Bedrohung,sicherheitsgefährdendes Ereignis,Threat,
-http://www.snik.eu/ontology/he/Sicherheitskonzept,Security Concept,Security Plan,,
-http://www.snik.eu/ontology/he/Sicherheitsleitlinie,,,Information Security Policy,IT Security Policy
-http://www.snik.eu/ontology/he/SicherungsMassnahme,Sicherheitsmaßnahme,Schutzmaßnahme,Security Control,
-http://www.snik.eu/ontology/he/Sla,Dienstgütevereinbarung,,Service Level Agreement ,
-http://www.snik.eu/ontology/he/SoftwareonDemand,ASP Software-Miete,,Software-Outsourcing,
-http://www.snik.eu/ontology/he/Struktureinheit,Organisationseinheit,,Organizational Unit,
-http://www.snik.eu/ontology/he/StrukturierteDaten,formatierte Daten,,Structured Data,
-http://www.snik.eu/ontology/he/SubjektiverInformationsbedarf,Informationsbedürfnis,,Information Need,
-http://www.snik.eu/ontology/he/Szenario,Zukunftsbild,,Scenario,
-http://www.snik.eu/ontology/he/Taetigkeit,Aktivität,Arbeitsschritt ,Operation Work Element,
-http://www.snik.eu/ontology/he/USV,Unterbrechungsfreie Stromversorgung,,Uninterruptable Power Supply,
-http://www.snik.eu/ontology/he/Urhg,Urheberrechtsgesetz (DÖ),,,
-http://www.snik.eu/ontology/he/Verrechnungspreis,Lenkungspreis,,Transfer Rate,
-http://www.snik.eu/ontology/he/Wissensbasis,,,Knowledge Base,Organizational Memory
-http://www.snik.eu/ontology/he/Wissensluecke,Wissensdefizit,,Knowledge Gap,
-http://www.snik.eu/ontology/he/Wissensobjekt,Wissenselement,,Knowledge Object Knowledge Bearer,
-http://www.snik.eu/ontology/he/Zeitvergleich,Periodenvergleich,,Period Comparison,
-http://www.snik.eu/ontology/he/Zielertrag,Zielerreichungsgrad,,Goal Profit,
-http://www.snik.eu/ontology/he/Zielwert,Teilnutzen,,Goal Value,
-http://www.snik.eu/ontology/he/technischeInfrastrukturarchitektur,,,Infrastructure Architecture,Platform Architecture
-http://www.snik.eu/ontology/he/unstrukturierteDaten,unformatierte Daten,formatfreie Daten,Unstructured Data,
-http://www.snik.eu/ontology/he/Datenpersonenbezogene,Personenbezogene Daten,,,
-http://www.snik.eu/ontology/he/EntscheidungueberMassnahmenzurQualitaetspolitikzudenQualitaetszielenundzurVerbesserungenamQualitaetsmanagementsystem,Entscheidung über Maßnahmen zur Qualitätspolitik zu den Qualitätszielen und zur Verbesserungen am Qualitätsmanagementsystem,,,
-http://www.snik.eu/ontology/he/MessungAnalyseundVerbesserung,Messung Analyse und Verbesserung,,,
+AuslagerungvonAufgabenKompetenzenundRessourcen,"Auslagerung von Aufgaben, Kompetenzen und Ressourcen",,,
+DezentralisierungvonAufgabenKompetenzenundRessourcen,"Dezentralisierung von Aufgaben, Kompetenzen und Ressourcen",,,
+EinbindungvonAufgabenKompetenzenundRessourcen,"Einbindung von Aufgaben, Kompetenzen und Ressourcen",,,
+ZentralisierungvonAufgabenKompetenzenundRessourcen,"Zentralisierung von Aufgaben, Kompetenzen und Ressourcen",,,
+Abrechnungsmodell,Kostenmodell,Preismodell,,
+Abteilung,Abteilung,,department,
+AnnualLossExposure,,,Annual Loss Exposure,ALE
+Auftrag,Job Order,,,
+Ausweichrechenzentrum,Notfallrechenzentrum,,Backup Computing Center,
+Authentifizieren,Authentifizierung,,Authentication,
+Benutzerservice,Benutzerservice,,Helpdesk,User-Help-Desk;Service Desk
+Bestandsmanagement,Bestandsmanagement,,Asset Management,Inventory Management
+Bitkom,Bundesverband Informationswirtschaft Telekommunikation und neue Medien e.V.,Bitkom,,
+BusinessItAlignment,,,Business-IT alignment,
+COBITInformationCriterion,CobiT Qualitätsmerkmal für Information ,,,
+CollaborationTools,,,Collaborative Software,Groupware
+DBMS,Datenbankverwaltungssystem,,Database Management System,
+Dienstleistungsqualitaet,Servicequalität,,Service Quality,
+Durchlaufzeit,,,Cycle Time,Lead Time
+EPK,ereignisgesteuerte Prozesskette,,Event-driven Process Chain,
+EVA,Earned-Value-Analyse,,Earned Value Analysis,
+Einsatzplan,,,Initiative Guide,Plan of Action
+Entscheidungsregel,Aggregationsfunktion,,Decision Rule,
+Entwicklungsrueckstau,Anwendungsrückstau,,Application Backlog,
+Fachkompetenz,Sachkompetenz,Fachwissen,hard skills,
+GanzheitlicheSicht,Umfassende Sicht,,Total Quality management,TQM
+Grundbegriff,Basisbegriff,Elementarbegriff,Basic Term,
+Grundsatz,Prinzip,,Principle,
+Humanvermoegen,Humankapital,,Human Recource,
+InformationellesGleichgewicht,Informationsstand,,Informational Balance,
+ItDienstleistung,,,IT Service,
+ItInfrastruktur,Technikinfrastruktur,technische Infrastruktur,IT Infrastructure,
+Katastrophe,,,Catastrophe,Disaster
+Kompetenzzentrum,,,Competence,Center Center of Excellence
+Kriterium,Zielkriterium,,Criterion,
+Leitstrategie,,,Key Strategy,Mission Strategy
+Mantelvereinbarung,Rahmenvertrag,,blanket agreement,
+Messgroesse,Metrik,,measured value,measured quantity
+Nutzen,Nutzwert,,benefit,
+Nutzenpreis,Knappheitspreis,,benefit rate ,
+Nutzwert,Nutzen,,Value of Benefit,
+Operation,Aktivität,Arbeitsschritt,Operation,
+OperationellesRisiko,Operationales Risiko,Operatives Risiko,Operational Risk,
+OutsourcingGrad,Outsourcing-Reichweite,,Degree of Outsourcing,
+OutsourcingNehmer,Outsourcing-Kunde,,Outsourcing Client,
+PIm,Persönliches Informationsmanagement,,Personal Information Management,
+Paarvergleich,Paarweiser Vergleich,,Paired Comparison,
+Prinzip,Grundsatz,,Principle,
+Produktaktivierung,Softwareaktivierung,,Product Activation,
+Projektrisiko,,,project risk,organizational risk
+Pruefliste,Prüfungsfragebogen,Checkliste,Checklist,
+Qualitaetsanforderung,Anforderung,,Quality Requirement,
+Qualitaetsmerkmal,Qualitätseigenschaft,,Quality Characteristic,
+RACI,,,Responsible Accountable Consulted and Informed,
+RAID,,,Redundant Array of Inexpensive Disks,Redundant array of Independent Disks
+Rettungsplan,Evakuierungsplan,,Rescue Guide,
+Risikoanalyse,,,Risk Analysis,Risk Assessment
+SCM,Lieferkettenmanagement,,Supply Chain Management,
+Schwachstelle,,,Vulnerability,weakness
+Schwaeche,Schwachstelle,,,
+Selbstkompetenz,Humankompetenz,Persönlichkeitskompetenz,,
+ServiceDesk,Benutzerservice-Zentrum,,Helpdesk,User-Help-Desk
+ServiceLevelAgreement,Serviceebenen-Vereinbarung,,,SLA
+ServiceLevelRequirement,Serviceebenen-Anforderung,,,SLR
+ServiceLevelSpecification,Serviceebenen-Spezifizierung,,,SLS
+Sicherheit,,,Security,Safety
+Sicherheitsgefaehrdung,Bedrohung,sicherheitsgefährdendes Ereignis,Threat,
+Sicherheitskonzept,Security Concept,Security Plan,,
+Sicherheitsleitlinie,,,Information Security Policy,IT Security Policy
+SicherungsMassnahme,Sicherheitsmaßnahme,Schutzmaßnahme,Security Control,
+Sla,Dienstgütevereinbarung,,Service Level Agreement ,
+SoftwareonDemand,ASP Software-Miete,,Software-Outsourcing,
+Struktureinheit,Organisationseinheit,,Organizational Unit,
+StrukturierteDaten,formatierte Daten,,Structured Data,
+SubjektiverInformationsbedarf,Informationsbedürfnis,,Information Need,
+Szenario,Zukunftsbild,,Scenario,
+Taetigkeit,Aktivität,Arbeitsschritt ,Operation Work Element,
+USV,Unterbrechungsfreie Stromversorgung,,Uninterruptable Power Supply,
+Urhg,Urheberrechtsgesetz (DÖ),,,
+Verrechnungspreis,Lenkungspreis,,Transfer Rate,
+Wissensbasis,,,Knowledge Base,Organizational Memory
+Wissensluecke,Wissensdefizit,,Knowledge Gap,
+Wissensobjekt,Wissenselement,,Knowledge Object Knowledge Bearer,
+Zeitvergleich,Periodenvergleich,,Period Comparison,
+Zielertrag,Zielerreichungsgrad,,Goal Profit,
+Zielwert,Teilnutzen,,Goal Value,
+technischeInfrastrukturarchitektur,,,Infrastructure Architecture,Platform Architecture
+unstrukturierteDaten,unformatierte Daten,formatfreie Daten,Unstructured Data,
+Datenpersonenbezogene,Personenbezogene Daten,,,
+EntscheidungueberMassnahmenzurQualitaetspolitikzudenQualitaetszielenundzurVerbesserungenamQualitaetsmanagementsystem,Entscheidung über Maßnahmen zur Qualitätspolitik zu den Qualitätszielen und zur Verbesserungen am Qualitätsmanagementsystem,,,
+MessungAnalyseundVerbesserung,Messung Analyse und Verbesserung,,,
