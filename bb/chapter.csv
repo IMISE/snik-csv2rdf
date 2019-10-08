@@ -1,0 +1,87 @@
+"suffix
+",number,first,last,label,subChapterOf
+thesaurus,,292,325,Thesaurus,
+chapter1,1,1,2,Introduction,
+chapter2,2,3,23,Health Institutions and Information Processing,
+chapter2.1,2.1,3,3,Introduction,chapter2
+chapter2.2,2.2,3,8,Significance of Information Processing in Health Care,chapter2
+chapter2.3,2.3,8,12,Progress in Information and Communication Technology,chapter2
+chapter2.4,2.4,12,16,"Importance of Systematic Information Management
+",chapter2
+chapter2.5,2.5,17,22,Examples,chapter2
+chapter2.6,2.6,22,23,Exercises,chapter2
+chapter2.7,2.7,23,23,Summary,chapter2
+chapter3,3,25,32,Information System Basics,
+chapter3.1,3.1,25,25,Introduction,chapter3
+chapter3.2,3.2,25,26,"Data, Information and Knowledge",chapter3
+chapter3.3,3.3,26,30,Information Systems and their Components,chapter3
+chapter3.4,3.4,30,30,Information Management,chapter3
+chapter3.5,3.5,30,31,Exercises,chapter3
+chapter3.6,3.6,31,32,Summary,chapter3
+chapter4,4,33,42,Health Information Systems,
+chapter4.1,4.1,33,33,Introduction,chapter4
+chapter4.2,4.2,33,36,Hospital Information Systems,chapter4
+chapter4.3,4.3,36,37,Transinsitutional Health Information Systems,chapter4
+chapter4.4,4.4,38,38,Electronic Health Records as a Part of Health Information Systems,chapter4
+chapter4.5,4.5,38,40,Challenges for Health Information Systems,chapter4
+chapter4.6,4.6,40,41,Example,chapter4
+chapter4.7,4.7,41,41,Exercises,chapter4
+chapter4.8,4.8,42,42,Summary,chapter4
+chapter5,5,43,73,Modeling Health Information Systems,
+chapter5.1,5.1,43,43,Introduction,chapter5
+chapter5.2,5.2,43,51,On Models and Metamodels,chapter5
+chapter5.3,5.3,51,68,A Metamodel for Modeling Health Information Systems on Three Layers: 3LGM²,chapter5
+chapter5.4,5.4,68,69,On Reference Models,chapter5
+chapter5.5,5.5,70,71,A Reference Model for the Domain Layer of Hospital Information Systems,chapter5
+chapter5.6,5.6,71,73,Exercises,chapter5
+chapter5.7,5.7,73,73,Summary,chapter5
+chapter6,6,75,183,Architecture of Hospital Information Systems,
+chapter6.1,6.1,75,75,Introduction,chapter6
+chapter6.2,6.2,75,79,Domain Layer: Data to be Processed in Hospitals,chapter6
+chapter6.3,6.3,79,110,Domain Layer: Hospital Functions,chapter6
+chapter6.4,6.4,110,137,Logical Tool Layer:  Application Components,chapter6
+chapter6.5,6.5,137,168,Logical Tool Layer:  Integration of Application Components,chapter6
+chapter6.6,6.6,168,172,Physical Tool Layer: Physical Data-Processing Systems,chapter6
+chapter6.7,6.7,172,177,Physical Tool Layer: Integration of Physical Data-Processing Systems,chapter6
+chapter6.8,6.8,178,181,Summarizing Example,chapter6
+chapter6.9,6.9,181,182,Summarizing Exercises,chapter6
+chapter6.10,6.10,183,183,Summary,chapter6
+chapter7,7,185,199,Specific Aspects for Architectures of Transinstitutional Health Information Systems,
+chapter7.1,7.1,185,185,Introduction,chapter7
+chapter7.2,7.2,186,188,Domain Layer,chapter7
+chapter7.3,7.3,188,192,Logical Tool Layer,chapter7
+chapter7.4,7.4,192,193,Physical Tool Layer,chapter7
+chapter7.5,7.5,193,198,Examples,chapter7
+chapter7.6,7.6,198,198,Exercises,chapter7
+chapter7.7,7.7,199,199,Summary,chapter7
+chapter8,8,201,236,Quality of Health Information Systems,
+chapter8.1,8.1,201,202,Introduction,chapter8
+chapter8.2,8.2,202,207,Quality of Structures,chapter8
+chapter8.3,8.3,208,212,Quality of Processes,chapter8
+chapter8.4,8.4,212,216,Quality of Outcome,chapter8
+chapter8.5,8.5,216,221,Balance as a Challenge for Information Management,chapter8
+chapter8.6,8.6,221,228,Evaluation of Health Information Systems Quality,chapter8
+chapter8.7,8.7,228,235,Summarizing Examples,chapter8
+chapter8.8,8.8,235,235,"Summarizing Exercises
+",chapter8
+chapter8.9,8.9,235,236,Summary,chapter8
+chapter9,9,237,282,Strategic Information Management in Hospitals,
+chapter9.1,9.1,237,237,Introduction,chapter9
+chapter9.2,9.2,238,249,"Strategic, Tactical and Operational Information Management",chapter9
+chapter9.3,9.3,249,253,Organizational Structures of Information Management,chapter9
+chapter9.4,9.4,254,263,Strategic Planning,chapter9
+chapter9.5,9.5,263,272,Strategic Monitoring,chapter9
+chapter9.6,9.6,273,274,Strategic Directing,chapter9
+chapter9.7,9.7,275,275,Last But Not Least: Education!,chapter9
+chapter9.8,9.8,275,279,Summarizing Examples,chapter9
+chapter9.9,9.9,279,281,Summarizing Exercises,chapter9
+chapter9.10,9.10,281,282,Summary,chapter9
+chapter10,10,283,289,Strategic Information Management in Health Care Networks,
+chapter10.1,10.1,283,284,Introduction,chapter10
+chapter10.2,10.2,284,284,Description of Health Care Networks,chapter10
+chapter10.3,10.3,284,286,Organizational Structures of Information Management in Health Care Networks,chapter10
+chapter10.4,10.4,286,287,Types of Health Care Networks,chapter10
+chapter10.5,10.5,287,288,Example,chapter10
+chapter10.6,10.6,288,288,Exercise,chapter10
+chapter10.7,10.7,288,289,Summary,chapter10
+chapter11,11,291,292,Final Remarks,
