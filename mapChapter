@@ -2,7 +2,7 @@
 #Adapted copy of map, overkill right now but easier adaptability for future translations.
 
 set -e
-SUBS="bb"
+SUBS="ob"
 for s in $SUBS
 do
  if [ ! -d "${s}" ]

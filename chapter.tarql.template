@@ -12,7 +12,8 @@ CONSTRUCT
 	meta:firstPage	?f;
 	meta:lastPage	?l;
 	meta:subChapterOf ?super;
-	rdfs:label ?label.
+	rdfs:label ?len;
+	rdfs:label ?lde.
 }
 FROM <file:../chapter.csv>
 WHERE
@@ -24,5 +25,6 @@ WHERE
    BIND(xsd:decimal(?number) as ?n)
    BIND (IF(?number != '', ?a, ?nothing) AS ?number)
    BIND (IF(?subChapterOf != '', URI(CONCAT(tarql:expandPrefix('{SUB}'),?subChapterOf)), ?nothing) AS ?super)
-   BIND (STRLANG(?label,"en") AS ?le)
+   BIND (IF(?en != '', STRLANG(?en,"en"), ?nothing) AS ?len)
+   BIND (IF(?de != '', STRLANG(?de,"de"), ?nothing) AS ?lde)
 }
