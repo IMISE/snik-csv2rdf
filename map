@@ -1,24 +1,26 @@
 #!/bin/bash
 set -e
-SUBS="it he"
+SUBS="bb"
 for s in $SUBS
 do
  if [ ! -d "${s}" ]
  then
   echo "********* ERROR: DIRECTORY ${s} DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} ********************************"
-  elif [ ! -e "${s}/main.csv" ]
-  then
-   echo "********* INPUT FILE ${s}/main.csv DOES NOT EXIST, SKIPPING SUBONTOLOGY ${s} *************************"
-   else
-    echo "********* Converting ${s} ******************************************************************************"
-    mkdir -p ${s}/tmp
-    mkdir -p ${s}/out
-    echo "** Generating main triples ******************************"
-    sed "s|{SUB}|${s}|g" main.tarql.template > ${s}/tmp/main.tarql
-    tarql ${s}/tmp/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/tmp/main.nt
-    echo "** Generating axioms *************************************"
-    sed "s|{SUB}|${s}|g" axiom.tarql.template > ${s}/tmp/axiom.tarql
-    tarql ${s}/tmp/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/  > ${s}/tmp/axiom.nt
+  else
+    if [ -e "${s}/main.csv" ]
+    then
+      echo "********* Converting ${s} ******************************************************************************"
+      mkdir -p ${s}/tmp
+      mkdir -p ${s}/out
+      echo "** Generating main triples ******************************"
+      sed "s|{SUB}|${s}|g" main.tarql.template > ${s}/tmp/main.tarql
+      tarql ${s}/tmp/main.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/ > ${s}/tmp/main.nt
+      echo "** Generating axioms *************************************"
+      sed "s|{SUB}|${s}|g" axiom.tarql.template > ${s}/tmp/axiom.tarql
+      tarql ${s}/tmp/axiom.tarql | rapper -i turtle - http://www.snik.eu/ontology/${s}/  > ${s}/tmp/axiom.nt
+    else
+      echo "** WARNING: ${s}/main.csv DOES NOT EXIST, SKIPPING CLASSES AND AXIOMS *******************************"
+    fi
     
     if [ -e "${s}/instance.csv" ]
     then
@@ -44,5 +46,5 @@ do
     echo "** Testing ************************************************"
     rapper -i turtle -c ${s}/out/all.ttl
     echo "********************************************************************************************************"
-   fi
+  fi
 done
