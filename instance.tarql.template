@@ -3,7 +3,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX {SUB}: <http://www.snik.eu/ontology/{SUB}/>
-PREFIX meta: <http://www.snik.eu/ontology/meta/>                                                                      
+PREFIX meta: <http://www.snik.eu/ontology/meta/>
+PREFIX dct: <http://purl.org/dc/terms/> 
 PREFIX apf: <http://jena.apache.org/ARQ/property#>
 
 CONSTRUCT
@@ -11,6 +12,7 @@ CONSTRUCT
  ?i	
 	a			?c;
      	rdfs:label		?lde,?len;
+     	dct:source		?quelle;
         skos:definition		?def.
 }
 
@@ -19,7 +21,8 @@ WHERE
 {
  BIND (uri(concat(tarql:expandPrefix('{SUB}'),?Klasse)) AS ?c)
  BIND (uri(concat(tarql:expandPrefix('{SUB}'),?InstanzUri)) AS ?i)
- BIND (STRLANG(?InstanzDe,"de") AS ?lde)
- BIND (STRLANG(?InstanzEn,"en") AS ?len)
- BIND (STRLANG(?Definition,"de") AS ?def)
+ BIND (IF(?Quelle != '', uri(?Quelle), ?nothing) AS ?quelle)
+ BIND (IF(?InstanzDe != '', STRLANG(?InstanzDe,"de"), ?nothing) AS ?lde)
+ BIND (IF(?InstanzEn != '', STRLANG(?InstanzEn,"en"), ?nothing) AS ?len)
+ BIND (IF(?Definition != '', STRLANG(?Definition,"de"), ?nothing) AS ?def)
 }
